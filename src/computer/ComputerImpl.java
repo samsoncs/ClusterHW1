@@ -14,7 +14,7 @@ public class ComputerImpl implements Computer{
 	
 	@Override
 	public <T> T execute(Task<T> t) throws RemoteException {
-		return null;
+		return t.execute();
 	}
 	
 	public static void main(String[] args) {
