@@ -8,7 +8,7 @@ import api.Task;
 
 public class ComputerImpl implements Computer{
 
-	public ComputerImpl(){
+	public ComputerImpl() throws RemoteException{
 		super();
 	}
 	
@@ -17,20 +17,20 @@ public class ComputerImpl implements Computer{
 		return t.execute();
 	}
 	
-	public static void main(String[] args) {
-        if (System.getSecurityManager() == null) {
-            System.setSecurityManager(new SecurityManager());
-        }
-        try {
-            String name = "Computer";
-            Computer compImpl = new ComputerImpl();
-            Computer stub = (Computer) UnicastRemoteObject.exportObject(compImpl, 0);
-            Registry registry = LocateRegistry.getRegistry();
-            registry.rebind(name, stub);
-            System.out.println("ComputerImpl bound");
-        } catch (Exception e) {
-            System.err.println("ComputerImpl exception:");
-            e.printStackTrace();
-        }
+    public static void main(String[] args) throws Exception
+    {
+        // construct & set a security manager (unnecessary in this case)
+        System.setSecurityManager( new SecurityManager() );
+
+        // instantiate a server object
+        Computer computer = new ComputerImpl(); // can throw RemoteException
+
+        // construct an rmiregistry within this JVM using the default port
+        Registry registry = LocateRegistry.createRegistry( 1099 );
+
+        // bind server in rmiregistry. Can throw exceptions. See api.
+        registry.rebind( Computer.SERVICE_NAME, computer );
+
+        System.out.println("ComplImpl.main: Ready.");
     }
 }
