@@ -6,14 +6,27 @@ import java.util.List;
 
 import api.Task;
 
+/**
+ * This is an implementation of the task interface that solves the traveling salesman problem
+ * @author Samson Svendsen, Simen Aakhus
+ *
+ */
 public class TaskEuclideanTsp implements Task<List<Integer>> {
 
 	double[][] cities;
-
+	
+	/**
+	 * Constructor that initiates cities
+	 * @param cities A 2D double array of cities, where cities[i][0] gives x-coordinate, and cities[i][1] is the y-coordinate.
+	 */
 	public TaskEuclideanTsp(double[][] cities) {
 		this.cities = cities;
 	}
 
+	/**
+	 * Method to execute calculations
+	 * @return returns the TSP path as an integer array of cities.
+	 */
 	@Override
 	public List<Integer> execute() {
 
@@ -28,6 +41,11 @@ public class TaskEuclideanTsp implements Task<List<Integer>> {
 		return pathList;
 	}
 
+	/**
+	 * Calculates an adjacency matrix
+	 * @param cities A 2D double array of cities, where cities[i][0] gives x-coordinate, and cities[i][1] is the y-coordinate.
+	 * @return returns a 2D adjacency matrix
+	 */
 	public double[][] calcAdjacencyMatrix(double[][] cities) {
 
 		int numberOfCities = cities.length;
@@ -52,6 +70,11 @@ public class TaskEuclideanTsp implements Task<List<Integer>> {
 
 	}
 
+	/**
+	 * Calculates the answer to TSP.
+	 * @param adjacencyMatrix 2D adjacency matrix.
+	 * @return returns a solution to TSP in the form of an array of cities
+	 */
 	public static int[] tsp(double adjacencyMatrix[][]) {
 
 		int[] path = new int[adjacencyMatrix[0].length];
@@ -76,6 +99,12 @@ public class TaskEuclideanTsp implements Task<List<Integer>> {
 		return path;
 	}
 
+	/**
+	 * Finds the minimum neighbor of a node that is not currently in the path.
+	 * @param row a row of an adjacency matrix.
+	 * @param path the current path of the tps method.
+	 * @return returns the next city.
+	 */
 	private static int findMin(double[] row, int[] path) {
 
 		int nextCity = -1;
@@ -92,6 +121,12 @@ public class TaskEuclideanTsp implements Task<List<Integer>> {
 		return nextCity;
 	}
 
+	/**
+	 * Checks wether a city is in the current path
+	 * @param path current path of cities.
+	 * @param city a city
+	 * @return true if city is in the current path, false if it is not.
+	 */
 	public static boolean isCityInPath(int[] path, int city) {
 		for (int i = 0; i < path.length; i++) {
 			if (path[i] == city) {
