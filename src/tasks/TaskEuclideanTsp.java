@@ -135,5 +135,4 @@ public class TaskEuclideanTsp implements Task<List<Integer>> {
 		}
 		return false;
 	}
-
 }
