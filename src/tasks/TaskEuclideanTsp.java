@@ -32,7 +32,7 @@ public class TaskEuclideanTsp implements Task<List<Integer>> {
 
 		double[][] adj = calcAdjacencyMatrix(cities);
 		int[] path = tsp(adj);
-		
+	
 		List<Integer> pathList = new ArrayList<Integer>();		
 		for (int index = 0; index < path.length; index++) {
 			pathList.add(path[index]);

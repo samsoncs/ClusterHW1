@@ -3,14 +3,17 @@ package clients;
 import api.Computer;
 import api.Task;
 import computer.ComputerImpl;
+
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -21,7 +24,8 @@ import javax.swing.JScrollPane;
  * @param <T>
  *            return type the Task that this Client executes.
  */
-public class Client<T> extends JFrame {
+@SuppressWarnings("serial")
+public class Client<T> extends JFrame implements Serializable{
 	final protected Task<T> task;
 	final private Computer computer;
 	protected T taskReturnValue;
@@ -33,9 +37,12 @@ public class Client<T> extends JFrame {
 		this.task = task;
 		setTitle(title);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
+		
 		String url = "rmi://" + domainName + ":" + Computer.PORT + "/"
 				+ Computer.SERVICE_NAME;
+		//String url = "//" + domainName + "/" + Computer.SERVICE_NAME;
+		
+	//	computer = (Computer) Naming.lookup(url);
 		computer = (domainName == null) ? new ComputerImpl()
 				: (Computer) Naming.lookup(url);
 	}

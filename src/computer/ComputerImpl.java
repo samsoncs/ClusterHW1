@@ -3,10 +3,12 @@ import java.rmi.RemoteException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+
 import api.Computer;
 import api.Task;
 
-public class ComputerImpl implements Computer{
+@SuppressWarnings("serial")
+public class ComputerImpl extends UnicastRemoteObject implements Computer{
 
 	public ComputerImpl() throws RemoteException{
 		super();
@@ -31,6 +33,8 @@ public class ComputerImpl implements Computer{
         // bind server in rmiregistry. Can throw exceptions. See api.
         registry.rebind( Computer.SERVICE_NAME, computer );
 
-        System.out.println("ComplImpl.main: Ready.");
+        System.out.println("ComputerlImpl.main: Ready.");
+    	
+        
     }
 }
