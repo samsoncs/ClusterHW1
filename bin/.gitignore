@@ -1,6 +1,4 @@
-/api/
-/server/
-/clients/
-/policy
-/policy.policy
 /computer/
+/clients/
+/api/
+/tasks/

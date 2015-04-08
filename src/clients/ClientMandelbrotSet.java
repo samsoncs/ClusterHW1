@@ -6,14 +6,17 @@ import java.awt.image.BufferedImage;
 import java.net.MalformedURLException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
 import tasks.TaskMandelbrotSet;
 
 /**
  *
  * @author Peter Cappello
  */
+@SuppressWarnings("serial")
 public class ClientMandelbrotSet extends Client<Integer[][]>
 {
     private static final double LOWER_LEFT_X = -2.0;

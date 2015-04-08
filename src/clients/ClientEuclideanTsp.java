@@ -3,21 +3,25 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 import java.net.MalformedURLException;
 import java.rmi.NotBoundException;
 import java.rmi.RemoteException;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+
 import tasks.TaskEuclideanTsp;
 
 /**
  *
  * @author Peter Cappello
  */
-public class ClientEuclideanTsp extends Client<List<Integer>>
+@SuppressWarnings("serial")
+public class ClientEuclideanTsp extends Client<List<Integer>> 
 {
     private static final int NUM_PIXALS = 600;
     private static final double[][] CITIES = 
