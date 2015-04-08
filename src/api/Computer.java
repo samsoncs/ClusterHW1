@@ -3,7 +3,7 @@ import java.rmi.Remote;
 import java.rmi.RemoteException;
 
 /**
- * This interface exposes the methods that can be called by the client
+ * This interface exposes the methods that can be called by the client.
  * @author Samson Svendsen, Simen Aakhus, Eivind Kristoffersen, Anders Kristiansen
  *
  */
