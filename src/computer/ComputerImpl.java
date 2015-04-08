@@ -33,7 +33,7 @@ public class ComputerImpl extends UnicastRemoteObject implements Computer{
         // bind server in rmiregistry. Can throw exceptions. See api.
         registry.rebind( Computer.SERVICE_NAME, computer );
 
-        System.out.println("ComputerlImpl.main: Ready.");
+        System.out.println("ComputerImpl.main: Ready.");
     	
         
     }
