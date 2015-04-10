@@ -26,7 +26,7 @@
 			</manifest>
 		</jar>
 		<!--  Make client jar file  -->
-		<jar jarfile="${dist}/client_mandlebrot.jar" basedir="${build}" includes="clients/** api/** tasks/**">
+		<jar jarfile="${dist}/client_mandelbrot.jar" basedir="${build}" includes="clients/** api/** tasks/**">
 			<manifest>
 				<attribute name="Main-Class" value="clients.ClientMandelbrotSet" />
 			</manifest>
@@ -58,8 +58,8 @@
 			</classpath>
 		</java>
 	</target>
-	<target name="runMandlebrotClient" description="run mandlebrot client">
-		<java jar="${dist}/client_mandlebrot.jar" fork="true">
+	<target name="runMandelbrotClient" description="run mandlebrot client">
+		<java jar="${dist}/client_mandelbrot.jar" fork="true">
 			<jvmarg value="-Djava.security.policy=security.policy.txt" />
 			<arg value="localhost" />
 			<classpath>
