@@ -6,6 +6,61 @@
 
 <p>
 
+<head>
+<style>
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+th, td {
+    padding: 5px;
+    text-align: left;
+}
+table#t01 {
+    width: 100%;    
+    background-color: #f1f1c1;
+}
+</style>
+</head>
+
+<table style="width:50%">
+<caption>Timings between two separate computers</caption>
+  <tr>
+    <th><center>TSP Task (ms)</center></th>
+    <th><center>Mandelbrot (ms)</center></th>		
+  </tr>
+  <tr>
+    <td><center>96</center></td>
+    <td><center>253</center></td>		
+  </tr>
+   <tr>
+    <td><center>159</center></td>
+    <td><center>280</center></td>		
+  </tr>
+   <tr>
+    <td><center>164</center></td>
+    <td><center>253</center></td>		
+  </tr>
+   <tr>
+    <td><center>135</center></td>
+    <td><center>250</center></td>		
+  </tr>
+   <tr>
+    <td><center>110</center></td>
+    <td><center>232</center></td>		
+  </tr>
+  <tr>
+    <td><center>Average: 132.8</center></td>
+    <td><center>Average: 253.6</center></td>		
+  </tr>
+ 
+</table>
+
+<p> We observe that the Mandelbrot task is always slower. This is because we used a nearest neighbour algorithm,
+<br> for the Eucledian Traveling Salesman Problem. For the implementation of this task solving it by looking at 
+<br> all possible permuatations, one would have expected this task to be slower.
+</p>
+
 </p>
 <p>
 	<a href="index.html">Back</a>
